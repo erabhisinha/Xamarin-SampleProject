@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DefineConstants>__MOBILE__;TRACE;USE_SQLITEPCL_RAW;NO_SQLITEPCL_RAW_BATTERIES;DEBUG;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+    <DefineConstants>__MOBILE__;TRACE;USE_SQLITEPCL_RAW;NO_SQLITEPCL_RAW_BATTERIES;RELEASE;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="2.0.4" />
+    <PackageReference Include="SQLitePCLRawProvider.static" Version="2.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SQLitePCLRawProvider.LiteSync" Version="2.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="Models\" />
+    <None Remove="Views\" />
+    <None Remove="sqlite-net-pcl" />
+    <None Remove="SQLitePCLRaw.core" />
+    <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
+    <None Remove="SQLitePCLRaw.provider.internal" />
+    <None Remove="SQLitePCLRaw.provider.sqlite3" />
+    <None Remove="SQLitePCLRawProvider.OctoDB" />
+    <None Remove="SQLitePCLRawProvider.static" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="SQLitePCLRawProvider.LiteSync" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\SplashPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\SplashPage.xaml" />
+  </ItemGroup>
+</Project>
